@@ -1,0 +1,124 @@
+
+1) Thread Identification Number (ident):
+
+           For every thread internally a unique identification number is available. We can access this id by using implicit variable "ident".
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+2) active_count():
+
+           - This function returns the number of active threads (objects) currently running.
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+3) enumerate() function:
+
+          - This function returns a list (names) of all active threads currently running.
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+4) isAlive():
+
+        - isAlive() method checks whether a thread is still executing or not.(i.e live or dead)
+        - if thread is Alive it gives True.
+        - if thread is Dead it gives False.
+
+        
+
+
+
+--------------------------------------------------------------------------------------------------
+
+
+5) join() method:
+
+
+         - If a thread wants to wait until completing some other thread then we should go for join() method.
+
+         - join() method which allows one thread to wait until another thread completes its execution.
+
+
+
+
+----------------------------------------------------------------------------------------------------      
+
+
+
+6) Daemon Threads:
+
+      - The threads which are running in the background are called Daemon Threads.
+        
+      - The main objective of Daemon Threads is to provide support for Non Daemon  Threads( like main thread)
+
+
+
+Eg: Garbage Collector:
+
+Whenever Main Thread runs with low memory, immediately PVM runs Garbage Collector to
+destroy useless objects and to provide free memory,so that Main Thread can continue its execution without having any memory problems.
+
+
+We can check whether thread is Daemon or not by using t.isDaemon() method of Thread class or
+by using daemon property.
+
+- isDaemon
+- daemon
+It gives True or False.
+
+
+
+
+
+----------------------------------------------
+
+
+
+We can change Daemon nature by using setDaemon() method of Thread class.
+
+t.setDaemon(True)  # daemon thread
+t.setDaemon(False)  # non-daemon thread
+
+
+- by default Main Thread is always non-daemon.
+
+
+But we can use this method before starting of Thread.i.e once thread started,we cannot change its
+Daemon nature,otherwise we will get RuntimeException:cannot set daemon status of active thread
+
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+
+7) Default Nature:
+ 
+- By default Main Thread is always non-daemon.But for the remaining threads Daemon nature will
+  be inherited from parent to child.
+
+ i.e if the Parent Thread is Daemon then child thread is also Daemon and if the Parent Thread is Non Daemon then ChildThread is also Non Daemon.
+
+
+
+
+Note: 
+
+Main Thread is always Non-Daemon and we cannot change its Daemon Nature b'z it is
+already started at the beginning only.
+
+Whenever the last Non-Daemon Thread terminates automatically all Daemon Threads will be
+terminated.
